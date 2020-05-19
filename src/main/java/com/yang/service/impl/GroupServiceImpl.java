@@ -35,13 +35,13 @@ public class GroupServiceImpl implements GroupService {
     }
 
     @Override
-    public boolean updateHostGroup(String host, String group) {
-        return groupDao.updateHostGroup(host, group);
+    public boolean updateHostGroup(String host, String group,int port) {
+        return groupDao.updateHostGroup(host, group,port);
     }
 
     @Override
-    public boolean addHostGroup(String host, String group) {
-        return groupDao.addHostGroup(host, group);
+    public boolean addHostGroup(String host, String group,int port) {
+        return groupDao.addHostGroup(host, group,port);
     }
 
 }

@@ -20,8 +20,8 @@ public class ScriptServiceImpl implements ScriptService {
     }
 
     @Override
-    public ScriptEntity getScriptByName(String shellName) {
-        return scriptDao.getScriptByName(shellName);
+    public ScriptEntity getScriptByName(String scriptName) {
+        return scriptDao.getScriptByName(scriptName);
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.yang.controller;
 
-import com.yang.RPCThriftClient;
-import com.yang.thrift.alert.ThresholdData;
+import com.yang.entity.ThresholdEntity;
+import com.yang.service.AlertService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,19 +15,16 @@ public class AlertController {
     protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    private RPCThriftClient rpcThriftClient;
+    private AlertService alertService;
 
     @RequestMapping(value = "/update",method = RequestMethod.PUT)
-    public boolean updateThreshold(@RequestBody ThresholdData thresholdData) {
+    public boolean updateThreshold(@RequestBody ThresholdEntity thresholdData) {
         try {
-            rpcThriftClient.open();
-            rpcThriftClient.getAlertClient().updateThreshold(thresholdData);
-            return true;
+            return alertService.updateThreshold(thresholdData);
         } catch (Exception e) {
-            logger.error("创建shell文件失败", e);
+            logger.error("更新阈值失败", e);
             return false;
-        } finally {
-            rpcThriftClient.close();
         }
     }
+
 }

@@ -8,7 +8,7 @@ public interface ScriptService {
 
     boolean insertScript(ScriptEntity scriptEntity);
 
-    ScriptEntity getScriptByName(String shellName);
+    ScriptEntity getScriptByName(String scriptName);
 
     List<ScriptEntity> getAllScript();
 

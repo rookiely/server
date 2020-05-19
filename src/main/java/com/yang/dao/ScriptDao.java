@@ -11,15 +11,15 @@ import java.util.List;
 @Mapper
 public interface ScriptDao {
 
-    @Insert("INSERT INTO scripttable (`shellName`,`shellContent`) VALUES (#{shellName},#{shellContent})")
+    @Insert("INSERT INTO scripttable (`scriptName`,`scriptContent`) VALUES (#{scriptName},#{scriptContent})")
     boolean insertScript(ScriptEntity scriptEntity);
 
-    @Select("SELECT * FROM scripttable WHERE `shellName` = #{shellName}")
-    ScriptEntity getScriptByName(@Param("shellName") String shellName);
+    @Select("SELECT * FROM scripttable WHERE `scriptName` = #{scriptName}")
+    ScriptEntity getScriptByName(@Param("scriptName") String scriptName);
 
     @Select("SELECT * FROM scripttable")
     List<ScriptEntity> getAllScript();
 
-    @Select("SELECT DISTINCT `shellName` FROM scripttable")
+    @Select("SELECT DISTINCT `scriptName` FROM scripttable")
     List<String> getScriptNameList();
 }

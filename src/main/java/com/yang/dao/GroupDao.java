@@ -20,9 +20,9 @@ public interface GroupDao {
     @Select("SELECT `host` FROM grouptable WHERE `group`=#{groupName}")
     List<String> getHostListByGroupName(@Param("groupName") String groupName);
 
-    @Update("UPDATE grouptable SET `group`=#{group} WHERE `host`=#{host}")
-    boolean updateHostGroup(@Param("host") String host, @Param("group") String group);
+    @Update("UPDATE grouptable SET `group`=#{group},`port`=#{port} WHERE `host`=#{host}")
+    boolean updateHostGroup(@Param("host") String host, @Param("group") String group, @Param("port") int port);
 
-    @Insert("INSERT INTO grouptable (`host`,`group`) VALUES (#{host},#{group})")
-    boolean addHostGroup(@Param("host") String host, @Param("group") String group);
+    @Insert("INSERT INTO grouptable (`host`,`group`,`port`) VALUES (#{host},#{group},#{port})")
+    boolean addHostGroup(@Param("host") String host, @Param("group") String group, @Param("port") int port);
 }

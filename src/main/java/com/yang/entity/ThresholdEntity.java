@@ -5,14 +5,14 @@ import lombok.Setter;
 import lombok.ToString;
 
 @ToString
-public class ScriptEntity {
+public class ThresholdEntity {
 
     @Getter @Setter
-    private int id;
+    private Double cpuThreshold;
 
     @Getter @Setter
-    private String scriptName;
+    private Double memThreshold;
 
     @Getter @Setter
-    private String scriptContent;
+    private Double diskThreshold;
 }

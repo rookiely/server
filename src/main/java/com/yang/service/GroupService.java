@@ -14,7 +14,7 @@ public interface GroupService {
 
     public List<String> getHostListByGroupName(String groupName);
 
-    boolean updateHostGroup(String host,String group);
+    boolean updateHostGroup(String host,String group,int port);
 
-    boolean addHostGroup(String host, String group);
+    boolean addHostGroup(String host, String group,int port);
 }
